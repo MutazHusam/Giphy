@@ -7,6 +7,7 @@ const Home = () => {
   const [gif, setGif] = useState([]);
 
   const [search, setSearch] = useState("");
+
   const fetchData = useCallback(async () => {
     const response = await CRUDRequests.get(
       `gifs/search?api_key=K31dRjLwOjY4j6huR9laaNDMJxXHfTE1&q=${
@@ -16,7 +17,9 @@ const Home = () => {
     setGif([...response.data.data]);
   });
   useEffect(() => {
-    fetchData();
+    setTimeout(function () {
+      fetchData();
+    }, 3000);
   }, [search]);
   const onChangHandler = (e) => {
     setSearch(e);
@@ -30,16 +33,17 @@ const Home = () => {
         setValue={setSearch}
       />
       <FlexBox>
-          {gif.map((ele) => {
-            return (
-              <img
-                style={{ margin: "1rem 0", maxHeight: "10rem" }}
-                src={ele.images.downsized.url}
-                alt="s"
-              />
-            );
-          })}
-        </FlexBox>
+        {gif.map((item) => {
+          return (
+            <img
+              key={item.images.downsized.url}
+              style={{ margin: "1rem 0", maxHeight: "10rem" }}
+              src={item.images.downsized.url}
+              alt="s"
+            />
+          );
+        })}
+      </FlexBox>
     </div>
   );
 };
