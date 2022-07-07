@@ -29,21 +29,17 @@ const Home = () => {
         value={search}
         setValue={setSearch}
       />
-      {gif.length > 0 ? (
-        <FlexBox>
+      <FlexBox>
           {gif.map((ele) => {
             return (
               <img
                 style={{ margin: "1rem 0", maxHeight: "10rem" }}
                 src={ele.images.downsized.url}
-                alt= "s"
+                alt="s"
               />
             );
           })}
         </FlexBox>
-      ) : (
-        ""
-      )}
     </div>
   );
 };

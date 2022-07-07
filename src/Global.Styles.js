@@ -15,16 +15,6 @@ export const MainContainer = styled("main")`
   }
 `;
 
-
-/*
-
-
-  width: 100%;
-  background-color: grey;
-  flex-wrap: wrap;
-
-*/
-
 export const FlexBox = styled("div")`
   display: flex;
   justify-content: space-around;
